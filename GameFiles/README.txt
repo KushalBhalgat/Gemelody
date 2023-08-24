@@ -14,4 +14,3 @@ As the player successfully collects the gems, they may be rewarded with pleasant
 The combination of the rhythmic music, mesmerizing visuals, and the engaging gameplay of collecting gems creates a powerful immersive experience. It allows the player to escape from the stresses of everyday life, entering a state of flow and relaxation. The game provides a therapeutic escape, enabling the mind to unwind, and the player to find solace and peace in the captivating synergy of music and gameplay.
 
 In summary, a game that spawns gems on music beats, requiring the player to collect them, offers a delightful and calming experience. By harmonizing captivating visuals, synchronized music, and effortless gameplay, it provides a soothing escape for the mind, allowing players to find relaxation, peace, and serenity.
-

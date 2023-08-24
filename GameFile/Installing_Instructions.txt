@@ -1,5 +1,0 @@
-It is a simple executable setup file.
-Install the game and you're good to go!
-
-
-Made by - Kushal Bhalgat
