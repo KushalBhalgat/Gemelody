@@ -1,0 +1,93 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MovePlayerOnBeats : AudioSyncer {
+
+    [SerializeField] private SpawnAreaSO[] spawnAreaSOArray;
+    [SerializeField] private float appliedForceCoefficient = 3f;
+    [SerializeField] private GameObject trailVisualObject;
+    private Rigidbody rb;
+    public static Vector3 lastPos;
+    private bool lastPosFlag = false;
+    private Vector3 playerVelocity;
+    private Vector3 targetPos;
+
+    private void Start() {
+        lastPos = transform.position;
+        rb = GetComponent<Rigidbody>();
+        targetPos = transform.position;
+    }
+
+    public override void OnUpdate() {
+        base.OnUpdate();
+        if (m_isBeat) { return; }
+    }
+
+    public override void OnBeat() {
+        base.OnBeat();
+        targetPos = GetRandomSpawnPosition(spawnAreaSOArray);
+        lastPos = transform.position;
+        appliedForceCoefficient = UnityEngine.Random.Range(1f, 3f);
+        rb.AddForce((targetPos - transform.position).normalized * appliedForceCoefficient, ForceMode.Impulse);
+        m_isBeat = false;
+    }
+
+    private Vector3 GetRandomSpawnPosition(SpawnAreaSO[] spawnAreaSOArray) {
+        Vector3 spawnPosition = Vector3.zero;
+        spawnPosition.z = 0f;
+        SpawnAreaSO chosenSpawnArea = spawnAreaSOArray[UnityEngine.Random.Range(0, 3)];
+        if (chosenSpawnArea.fixedX != -1000f) {
+            spawnPosition.x = chosenSpawnArea.fixedX;
+            spawnPosition.y = UnityEngine.Random.Range(chosenSpawnArea.bound1, chosenSpawnArea.bound2);
+        }
+        else {
+            spawnPosition.x = UnityEngine.Random.Range(chosenSpawnArea.bound1, chosenSpawnArea.bound2);
+            spawnPosition.y = chosenSpawnArea.fixedY;
+        }
+        return spawnPosition;
+    }
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Boundary") {
+            if (trailVisualObject.activeInHierarchy) {
+                trailVisualObject.SetActive(false);
+            }
+            lastPos = transform.position;
+            appliedForceCoefficient = UnityEngine.Random.Range(1f, 3f);
+            rb.AddForce((Vector3.zero - transform.position).normalized * appliedForceCoefficient, ForceMode.Impulse);
+        }
+    }
+    private void OnCollisionExit(Collision collision) {
+        if (collision.contacts.Length > 0) {
+            lastPos = collision.GetContact(0).point;
+        }
+        if (!trailVisualObject.activeInHierarchy) {
+            trailVisualObject.SetActive(true);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

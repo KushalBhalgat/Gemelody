@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e772e65d819f74aa9c64e59b8a1f8f, type: 3}
+  m_Name: CE
+  m_EditorClassIdentifier: 
+  dieTimer: 1.5
+  points: -2
+  prefab: {fileID: 5374275359572057639, guid: 83f1ae0aa2c61244bb02c4a100bfa606, type: 3}

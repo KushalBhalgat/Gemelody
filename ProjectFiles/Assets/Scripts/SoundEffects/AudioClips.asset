@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7da8d9e5a68b8428c422bcebb027c0, type: 3}
+  m_Name: AudioClips
+  m_EditorClassIdentifier: 
+  hitEnemy: {fileID: 8300000, guid: f55b0ec760452e9448f644b69ef3a52b, type: 3}
+  levelUp:
+  - {fileID: 8300000, guid: bd04279f8a1b0e94a9e7cf965a689be3, type: 3}
+  - {fileID: 8300000, guid: 86774c2c8aaf1e44fb1ad99756e930cc, type: 3}
+  - {fileID: 8300000, guid: a08fb8a0a5675064f9e951cf7f63bc2b, type: 3}
