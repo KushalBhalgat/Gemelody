@@ -7,30 +7,30 @@ public class AudioSyncer : MonoBehaviour {
 	public float timeStep;
 	public float timeToBeat;
 	public float restSmoothTime;
-	private float m_previousAudioValue;
-	private float m_audioValue;
-	private float m_timer;
-	public bool m_isBeat;
+	private float preAudioValue;
+	private float audioVal;
+	private float audioTimer;
+	public bool isBeat;
 
 	public virtual void OnBeat()
 	{
-		m_timer = 0;
-		m_isBeat = true;
+		audioTimer = 0;
+		isBeat = true;
 	}
 
 	public virtual void OnUpdate()
 	{ 
-		m_previousAudioValue = m_audioValue;
-		m_audioValue = AudioSpectrum.spectrumValue;
+		preAudioValue = m_audioValue;
+		audioVal = AudioSpectrum.spectrumValue;
 
-		if (m_previousAudioValue > bias && m_audioValue <= bias){
-			if (m_timer > timeStep){OnBeat();}
+		if (preAudioValue > bias && audioVal <= bias){
+			if (audioTimer > timeStep){OnBeat();}
 		}
 
-		if (m_previousAudioValue <= bias && m_audioValue > bias){
-			if (m_timer > timeStep){OnBeat();}
+		if (preAudioValue <= bias && audioVal > bias){
+			if (audioTimer > timeStep){OnBeat();}
 		}
-		m_timer += Time.deltaTime;
+		audioTimer += Time.deltaTime;
 	}
 
 	private void Update(){
