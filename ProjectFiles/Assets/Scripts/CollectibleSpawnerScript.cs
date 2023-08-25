@@ -35,7 +35,7 @@ public class CollectibleSpawnerScript : AudioSyncer {
             Transform collectible = Instantiate(selectedSO.prefab).transform;
             collectible.transform.position = targetPos;
         }
-        m_isBeat = false;
+        isBeat = false;
     }
     public static Vector3 GetRandomPositionInArea() {
         Vector3 pos;
